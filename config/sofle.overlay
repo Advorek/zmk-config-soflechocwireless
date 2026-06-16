@@ -1,0 +1,19 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan_0 {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+        diode-direction = "col2row"; 
+
+        row-gpios
+            = <&pro_micro 9 GPIO_ACTIVE_HIGH>   // Rząd 12345 (Twój pin 024 -> Arduino D9)
+            , <&pro_micro 6 GPIO_ACTIVE_HIGH>   // Rząd qwert (Twój pin 100 -> Arduino D6)
+            , <&pro_micro 10 GPIO_ACTIVE_HIGH>  // Rząd asdfg (Twój pin 011 -> Arduino D10)
+            , <&pro_micro 8 GPIO_ACTIVE_HIGH>   // Rząd zxcvb (Twój pin 104 -> Arduino D8)
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>  // Dolny rząd (Twój pin 106 -> Arduino D9 prawy / D14)
+            ;
+    };
+};
